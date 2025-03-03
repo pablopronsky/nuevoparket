@@ -91,4 +91,7 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  .font-nordique {
+    font-family: 'Nordique Pro', sans-serif;
+  }
 }

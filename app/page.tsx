@@ -1,4 +1,5 @@
-import React from "react"
+"use client"
+import React, { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Instagram, Facebook } from "lucide-react"
@@ -8,10 +9,12 @@ import ReviewCarousel from "../components/review-carousel"
 import ContactForm from "../components/contact-form"
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Header */}
-      <header className="container mx-auto p-6 flex justify-between items-center">
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
+      {/* Header - Ahora con un sutil degradado */}
+      <header className="container mx-auto p-6 flex justify-between items-center bg-gradient-to-b from-black to-transparent relative">
         <div className="flex items-center">
           <Image
             src="npwhite.png"
@@ -22,20 +25,27 @@ export default function Home() {
           />
         </div>
         <nav className="hidden md:flex space-x-6">
-          <Link href="#servicios" className="hover:text-[#ef7f1a] transition-colors">
+          <Link href="#servicios" className="relative hover:text-[#ef7f1a] transition-colors group">
             Servicios
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ef7f1a] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link href="#sucursales" className="hover:text-[#ef7f1a] transition-colors">
+          <Link href="#sucursales" className="relative hover:text-[#ef7f1a] transition-colors group">
             Sucursales
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ef7f1a] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link href="#opiniones" className="hover:text-[#ef7f1a] transition-colors">
+          <Link href="#opiniones" className="relative hover:text-[#ef7f1a] transition-colors group">
             Opiniones
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ef7f1a] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link href="#contacto" className="hover:text-[#ef7f1a] transition-colors">
+          <Link href="#contacto" className="relative hover:text-[#ef7f1a] transition-colors group">
             Contacto
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ef7f1a] transition-all duration-300 group-hover:w-full"></span>
           </Link>
         </nav>
-        <button className="md:hidden">
+        <button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden z-50"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -43,17 +53,61 @@ export default function Home() {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} 
+            />
           </svg>
         </button>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="fixed inset-0 bg-black/95 md:hidden z-40">
+            <nav className="flex flex-col items-center justify-center h-full space-y-8">
+              <Link 
+                href="#servicios" 
+                className="text-2xl hover:text-[#ef7f1a] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Servicios
+              </Link>
+              <Link 
+                href="#sucursales" 
+                className="text-2xl hover:text-[#ef7f1a] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sucursales
+              </Link>
+              <Link 
+                href="#opiniones" 
+                className="text-2xl hover:text-[#ef7f1a] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Opiniones
+              </Link>
+              <Link 
+                href="#contacto" 
+                className="text-2xl hover:text-[#ef7f1a] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contacto
+              </Link>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Nuevo Parket <br></br> <span className="text-[#ef7f1a]">Creamos Bienestar</span>
+            <span className="font-nordique">nuevo <span className="text-[#016425]">parket</span></span>
           </h1>
+          <h2 className="text-2xl md:text-4xl font-semibold mb-8 text-[#ef7f1a]">
+            Creamos Bienestar
+          </h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
             Venta y colocación de pisos y revestimientos de alta calidad.
           </p>

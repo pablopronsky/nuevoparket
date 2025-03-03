@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { MapPin, Phone } from "lucide-react"
+import { MapPin, MessageCircle } from "lucide-react"
 import React from "react"
 
 interface BranchCardProps {
@@ -12,37 +12,46 @@ interface BranchCardProps {
 
 export default function BranchCard({ name, image, mapUrl, whatsappUrl }: BranchCardProps) {
   return (
-    <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
+    <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
       <Image
         src={image || "/placeholder.svg"}
         alt={name}
         width={400}
-        height={250}
-        className="w-full h-48 object-cover"
+        height={400}
+        className="w-full h-full object-cover"
       />
+      
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-4">{name}</h3>
+      <div className="absolute bottom-0 left-0 right-0 p-6">
+        <h3 className="text-xl font-bold mb-4 text-center text-white">{name}</h3>
 
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-row space-x-4 justify-center">
           <Link
             href={mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 bg-[#ef7f1a] text-white py-2 px-4 rounded-md hover:bg-[#d97416] transition-colors"
+            className="flex items-center justify-center gap-2 px-5 py-2 rounded-xl text-white 
+            bg-[#191919] border-2 border-[#ef7f1a] hover:bg-[#ef7f1a]
+            shadow-lg shadow-[#ef7f1a]/20 transform hover:-translate-y-0.5 
+            transition-all duration-200 ease-out"
           >
-            <MapPin size={18} />
-            <span>Ubicación</span>
+            <MapPin size={16} className="stroke-2" />
+            <span className="font-medium text-sm">Ubicación</span>
           </Link>
 
           <Link
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 bg-[#009933] text-white py-2 px-4 rounded-md hover:bg-[#007a29] transition-colors"
+            className="flex items-center justify-center gap-2 px-5 py-2 rounded-xl text-white 
+            bg-[#191919] border-2 border-[#016425] hover:bg-[#016425]
+            shadow-lg shadow-[#016425]/20 transform hover:-translate-y-0.5 
+            transition-all duration-200 ease-out"
           >
-            <Phone size={18} />
-            <span>Contacto</span>
+            <MessageCircle size={16} className="stroke-2" />
+            <span className="font-medium text-sm">Contacto</span>
           </Link>
         </div>
       </div>

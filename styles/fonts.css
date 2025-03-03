@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'fontsfree-net-nordique-pro-bold';
+  src: url('/path/to/fonts/fontsfree-net-nordique-pro-bold.woff2') format('woff2'),
+       url('/path/to/fonts/fontsfree-net-nordique-pro-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.font-[fontsfree-net-nordique-pro-bold] {
+  font-family: 'fontsfree-net-nordique-pro-bold', sans-serif;
+}
+
+@font-face {
+  font-family: 'Nordique Pro Bold';  /* Cambiado el nombre para que coincida exactamente */
+  src: url('/fonts/nordique-pro-bold.woff2') format('woff2'),
+       url('/fonts/nordique-pro-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Definir la clase de utilidad para Tailwind */
+.font-nordique {
+  font-family: 'Nordique Pro Bold', sans-serif;
+}
