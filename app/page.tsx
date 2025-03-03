@@ -64,32 +64,32 @@ export default function Home() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-black/95 md:hidden z-40">
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm md:hidden z-40">
             <nav className="flex flex-col items-center justify-center h-full space-y-8">
               <Link 
                 href="#servicios" 
-                className="text-2xl hover:text-[#ef7f1a] transition-colors"
+                className="text-2xl text-white/90 hover:text-[#ef7f1a] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Servicios
               </Link>
               <Link 
                 href="#sucursales" 
-                className="text-2xl hover:text-[#ef7f1a] transition-colors"
+                className="text-2xl text-white/90 hover:text-[#ef7f1a] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Sucursales
               </Link>
               <Link 
                 href="#opiniones" 
-                className="text-2xl hover:text-[#ef7f1a] transition-colors"
+                className="text-2xl text-white/90 hover:text-[#ef7f1a] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Opiniones
               </Link>
               <Link 
                 href="#contacto" 
-                className="text-2xl hover:text-[#ef7f1a] transition-colors"
+                className="text-2xl text-white/90 hover:text-[#ef7f1a] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contacto
