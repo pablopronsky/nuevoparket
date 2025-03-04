@@ -12,7 +12,7 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5]">
       {/* Header - Ahora con un sutil degradado */}
       <header className="container mx-auto p-6 flex justify-between items-center bg-gradient-to-b from-black to-transparent relative">
         <div className="flex items-center">
@@ -21,10 +21,10 @@ export default function Home() {
             alt="Nuevo Parket Logo"
             width={64}
             height={64}
-            className="mr-2"
+            className="mr-2 opacity-95"
           />
         </div>
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-6 font-bold text-[#f5f5f5]">
           <Link href="#servicios" className="relative hover:text-[#ef7f1a] transition-colors group">
             Servicios
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ef7f1a] transition-all duration-300 group-hover:w-full"></span>
@@ -68,28 +68,28 @@ export default function Home() {
             <nav className="flex flex-col items-center justify-center h-full space-y-8">
               <Link 
                 href="#servicios" 
-                className="text-2xl text-white/90 hover:text-[#ef7f1a] transition-colors"
+                className="text-2xl text-[#f5f5f5]/90 hover:text-[#ef7f1a] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Servicios
               </Link>
               <Link 
                 href="#sucursales" 
-                className="text-2xl text-white/90 hover:text-[#ef7f1a] transition-colors"
+                className="text-2xl text-[#f5f5f5]/90 hover:text-[#ef7f1a] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Sucursales
               </Link>
               <Link 
                 href="#opiniones" 
-                className="text-2xl text-white/90 hover:text-[#ef7f1a] transition-colors"
+                className="text-2xl text-[#f5f5f5]/90 hover:text-[#ef7f1a] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Opiniones
               </Link>
               <Link 
                 href="#contacto" 
-                className="text-2xl text-white/90 hover:text-[#ef7f1a] transition-colors"
+                className="text-2xl text-[#f5f5f5]/90 hover:text-[#ef7f1a] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contacto
@@ -100,71 +100,47 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
-        <div className="container mx-auto text-center">
-          <h1 className="mb-4 w-full max-w-[600px] md:max-w-[800px] mx-auto">
-            <Image
-              src="/logo-header.png"
-              alt="Nuevo Parket Logo"
-              width={800}
-              height={200}
-              className="w-full h-auto"
-              priority
-            />
-          </h1>
-          <h2 className="text-2xl md:text-4xl font-semibold mb-8 text-[#ef7f1a]">
-            Creamos Bienestar
-          </h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
-            Venta y colocación de pisos y revestimientos de alta calidad.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <div className="bg-gray-800 rounded-lg p-6 transform transition-transform hover:scale-105">
-              <Image
-                src="quality.jpg"
-                alt="Calidad"
-                width={300}
-                height={200}
-                className="mx-auto mb-4 rounded"
-              />
-              <h3 className="text-xl font-semibold mb-2">Calidad Premium</h3>
-              <p className="text-gray-300">
-                Trabajamos con los mejores materiales del mercado para garantizar durabilidad y belleza.
-              </p>
+      <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row items-stretch justify-center">
+            <div className="w-full md:w-1/2 flex items-center justify-center p-4">
+              <div className="w-full max-w-[600px]">
+                <Image
+                  src="/logo-header.png"
+                  alt="Nuevo Parket Logo"
+                  width={1000}
+                  height={250}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
             </div>
 
-            <div className="bg-gray-800 rounded-lg p-6 transform transition-transform hover:scale-105">
-              <Image
-                src="professional.png"
-                alt="Experiencia"
-                width={300}
-                height={200}
-                className="mx-auto mb-4 rounded"
-              />
-              <h3 className="text-xl font-semibold mb-2">Experiencia Profesional</h3>
-              <p className="text-gray-300">
-                Nuestro equipo cuenta con años de experiencia en instalación y asesoramiento.
-              </p>
+            <div className="hidden md:flex items-center justify-center px-8">
+              <div className="flex flex-1 items-center">
+                <div className="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10"></div>
+              </div>
             </div>
 
-            <div className="bg-gray-800 rounded-lg p-6 transform transition-transform hover:scale-105">
-              <Image
-                src="/warranty.jpg"
-                alt="Garantía"
-                width={300}
-                height={200}
-                className="mx-auto mb-4 rounded"
-              />
-              <h3 className="text-xl font-semibold mb-2">Garantía Asegurada</h3>
-              <p className="text-gray-300">
-                Todos nuestros productos e instalaciones cuentan con garantía certificada.
-              </p>
+            <div className="w-full md:w-1/2 flex items-center justify-center p-4">
+              <div className="w-full max-w-[400px] flex flex-col items-center">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-[#ef7f1a] text-center whitespace-nowrap">
+                  Creamos Bienestar
+                </h2>
+                <p className="text-lg md:text-xl text-center font-bold text-[#f5f5f5]">
+                  En Nuevo Parket simplificamos tu obra estando en cada detalle
+                </p>
+              </div>
             </div>
           </div>
         </div>
+        {/* Separator */}
+        <div className="flex justify-center">
+          <hr className="my-12 h-0.5 w-[60%] border-t-0 bg-neutral-100 dark:bg-white/10" />
+        </div>
       </section>
 
+      
       {/* Branches Section */}
       <section id="sucursales" className="py-20 px-4">
         <div className="container mx-auto">
