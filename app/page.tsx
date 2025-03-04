@@ -102,8 +102,15 @@ export default function Home() {
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            <span className="font-nordique">nuevo <span className="text-[#016425]">parket</span></span>
+          <h1 className="mb-4 w-full max-w-[600px] md:max-w-[800px] mx-auto">
+            <Image
+              src="/logo-header.png"
+              alt="Nuevo Parket Logo"
+              width={800}
+              height={200}
+              className="w-full h-auto"
+              priority
+            />
           </h1>
           <h2 className="text-2xl md:text-4xl font-semibold mb-8 text-[#ef7f1a]">
             Creamos Bienestar
